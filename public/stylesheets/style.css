@@ -187,6 +187,10 @@
 #clues {
   background: #fff;
 }
+#clues ul {
+  margin: 8px 0px;
+  padding: 8px 0px;
+}
 #clues button {
   margin: 0 auto;
   margin: 0;
@@ -205,8 +209,9 @@
   font-size: 12px;
   font-weight: bold;
   line-height: 1;
-  padding: 8px 20px 9px 20px;
+  padding: 8px 0px 8px 0px;
   text-align: center;
+  width: 20%;
 }
 #clues .plus button {
   background: #008000;
