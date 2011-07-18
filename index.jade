@@ -1,4 +1,4 @@
-doctype 5
+!!! html
 html
   head
     link(href='/stylesheets/style.css', rel='stylesheet')
@@ -17,10 +17,18 @@ html
       });
 
       socket.on('nicknames', function (nicknames) {
-        $('#nicknames').empty().append($('<span>Online: </span>'));
+        $('#nicknames').empty();
         for (var i in nicknames) {
-          $('#nicknames').append($('<b>').text(nicknames[i]));
+          $('#nicknames').append(
+            $('<div id="'+i+'">')
+            .append($('<p>').text(i))
+            .append($('<p class="score">').text(nicknames[i]))
+            );
         }
+      });
+
+      socket.on('update score', function (nick, score) {
+        $('#'+nick+' .score').text(score);
       });
 
       socket.on('user message', message);
@@ -40,6 +48,8 @@ html
       function message (from, msg) {
         $('#lines').append($('<p>').append($('<b>').text(from), msg));
       }
+      
+      
 
       // dom manipulation
       $(function () {
@@ -61,7 +71,17 @@ html
           $('#lines').get(0).scrollTop = 10000000;
           return false;
         });
-
+        $('#clues button').click(function () {
+          var op = $(this).parent().attr('class'),
+          nick = $('#nick').val(),
+          val = Number($(this).text()),
+          score = $('#'+nick+' .score');
+          if (op == 'minus') val *= -1;
+          newScore = val + Number(score.text());
+          score.text(newScore);
+          socket.emit('new score', newScore);
+          return false;
+        });
         function clear () {
           $('#message').val('').focus();
         };
@@ -81,3 +101,16 @@ html
       form#send-message
         input#message
         button Send
+    #clues
+        ul.plus
+          button 200
+          button 400
+          button 600
+          button 800
+          button 1000
+        ul.minus
+          button 200
+          button 400
+          button 600
+          button 800
+          button 1000

@@ -1,6 +1,7 @@
 @import 'nib'
+@import 'my'
 
-#chat, #nickname, #messages
+#chat, #nickname, #messages, #clues
   width 600px
 
 #chat
@@ -56,27 +57,26 @@
     b
       display inline-block
       padding-right 10px
-  p:nth-child(even)
-    background #fafafa
   #nicknames
     background #ccc
     padding 2px 4px 4px
-    font 11px Helvetica
-    span
-      color black
-    b
+    font 14px Helvetica
+    div 
       display inline-block
       color #fff
-      background #999
+      background blue
       padding 3px 6px
       margin-right 5px
-      border-radius 10px
-      text-shadow 0 1px 0 #666
+      border-radius 2px
+    p
+      text-align center
   #lines
-    height 355px
+    height 55px
     overflow auto
     overflow-x hidden
     overflow-y auto
+    p:nth-child(even)
+      background #fafafa
     &::-webkit-scrollbar
       width 6px
       height 6px
@@ -110,9 +110,21 @@
     &:focus
       outline 0
   button
+    download-button()
     position absolute
     top 5px
     right 5px
 
-button
-  download-button()
+#clues 
+  background #fff
+  button
+    margin 0 auto
+    clue-button()
+  .plus
+    button
+      color-button(green, white)
+  .minus
+    button
+       color-button(red, white)
+  button
+   

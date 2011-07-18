@@ -64,12 +64,18 @@ io.sockets.on('connection', function (socket) {
       fn(true);
     } else {
       fn(false);
-      nicknames[nick] = socket.nickname = nick;
+      socket.nickname = nick;
+      nicknames[nick] = 0
       socket.broadcast.emit('announcement', nick + ' connected');
       io.sockets.emit('nicknames', nicknames);
     }
   });
-
+  
+  socket.on('new score', function(score) {
+    console.log('new score')
+    socket.broadcast.emit('update score', socket.nickname, score);
+  });
+  
   socket.on('disconnect', function () {
     if (!socket.nickname) return;
 

@@ -1,6 +1,7 @@
 #chat,
 #nickname,
-#messages {
+#messages,
+#clues {
   width: 600px;
 }
 #chat {
@@ -62,33 +63,32 @@
   display: inline-block;
   padding-right: 10px;
 }
-#messages p:nth-child(even) {
-  background: #fafafa;
-}
 #messages #nicknames {
   background: #ccc;
   padding: 2px 4px 4px;
-  font: 11px Helvetica;
+  font: 14px Helvetica;
 }
-#messages #nicknames span {
-  color: #000;
-}
-#messages #nicknames b {
+#messages #nicknames div {
   display: inline-block;
   color: #fff;
-  background: #999;
+  background: #00f;
   padding: 3px 6px;
   margin-right: 5px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  text-shadow: 0 1px 0 #666;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+#messages #nicknames p {
+  text-align: center;
 }
 #messages #lines {
-  height: 355px;
+  height: 55px;
   overflow: auto;
   overflow-x: hidden;
   overflow-y: auto;
+}
+#messages #lines p:nth-child(even) {
+  background: #fafafa;
 }
 #messages #lines::-webkit-scrollbar {
   width: 6px;
@@ -132,11 +132,6 @@
   outline: 0;
 }
 #send-message button {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-}
-button {
   margin: 0;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -160,9 +155,12 @@ button {
   padding: 3px 10px 5px 10px;
   text-align: center;
   text-shadow: 0 -1px 1px #2d6dc0;
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
-button:hover,
-button.hover {
+#send-message button:hover,
+#send-message button.hover {
   background: darker;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #43a1f7), color-stop(1, #2e70c4));
   background: -webkit-linear-gradient(top, #43a1f7 0%, #2e70c4 100%);
@@ -172,17 +170,99 @@ button.hover {
   cursor: pointer;
   text-shadow: 0 -1px 1px #2c6bbb;
 }
-button:active,
-button.active {
+#send-message button:active,
+#send-message button.active {
   background: #2e70c4;
   border: 1px solid #2e70c4;
   border-bottom: 1px solid #2861aa;
   text-shadow: 0 -1px 1px #2b67b5;
 }
-button:focus,
-button.focus {
+#send-message button:focus,
+#send-message button.focus {
   outline: none;
   -webkit-box-shadow: 0 1px 0 0 rgba(255,255,255,0.4), 0 0 4px 0 #377ad0;
   -moz-box-shadow: 0 1px 0 0 rgba(255,255,255,0.4), 0 0 4px 0 #377ad0;
   box-shadow: 0 1px 0 0 rgba(255,255,255,0.4), 0 0 4px 0 #377ad0;
+}
+#clues {
+  background: #fff;
+}
+#clues button {
+  margin: 0 auto;
+  margin: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 0 1px 1px rgba(255,255,255,0.8);
+  -moz-box-shadow: inset 0 0 1px 1px rgba(255,255,255,0.8);
+  box-shadow: inset 0 0 1px 1px rgba(255,255,255,0.8);
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  padding: 8px 20px 9px 20px;
+  text-align: center;
+}
+#clues .plus button {
+  background: #008000;
+  border: 1px solid #006d00;
+  color: #fff;
+}
+#clues .plus button:hover,
+#clues .plus button.hover {
+  background: #007a00;
+  -webkit-box-shadow: inset 0 0 1px 1px rgba(255,255,255,0.5);
+  -moz-box-shadow: inset 0 0 1px 1px rgba(255,255,255,0.5);
+  box-shadow: inset 0 0 1px 1px rgba(255,255,255,0.5);
+  cursor: pointer;
+  color: #fff;
+}
+#clues .plus button:active,
+#clues .plus button.active {
+  background: #007300;
+  -webkit-box-shadow: inset 0 0 1px 1px rgba(255,255,255,0.2);
+  -moz-box-shadow: inset 0 0 1px 1px rgba(255,255,255,0.2);
+  box-shadow: inset 0 0 1px 1px rgba(255,255,255,0.2);
+  color: #808080;
+}
+#clues .plus button:focus,
+#clues .plus button.focus {
+  outline: none;
+  -webkit-box-shadow: 0 0 5px 1px #008000;
+  -moz-box-shadow: 0 0 5px 1px #008000;
+  box-shadow: 0 0 5px 1px #008000;
+}
+#clues .minus button {
+  background: #f00;
+  border: 1px solid #d90000;
+  color: #fff;
+}
+#clues .minus button:hover,
+#clues .minus button.hover {
+  background: #f20000;
+  -webkit-box-shadow: inset 0 0 1px 1px rgba(255,255,255,0.5);
+  -moz-box-shadow: inset 0 0 1px 1px rgba(255,255,255,0.5);
+  box-shadow: inset 0 0 1px 1px rgba(255,255,255,0.5);
+  cursor: pointer;
+  color: #fff;
+}
+#clues .minus button:active,
+#clues .minus button.active {
+  background: #e60000;
+  -webkit-box-shadow: inset 0 0 1px 1px rgba(255,255,255,0.2);
+  -moz-box-shadow: inset 0 0 1px 1px rgba(255,255,255,0.2);
+  box-shadow: inset 0 0 1px 1px rgba(255,255,255,0.2);
+  color: #808080;
+}
+#clues .minus button:focus,
+#clues .minus button.focus {
+  outline: none;
+  -webkit-box-shadow: 0 0 5px 1px #f00;
+  -moz-box-shadow: 0 0 5px 1px #f00;
+  box-shadow: 0 0 5px 1px #f00;
 }
