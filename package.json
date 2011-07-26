@@ -1,6 +1,6 @@
 {
-    "name": "chat.io"
-  , "description": "example chat application with socket.io"
+    "name": "jeoparty"
+  , "description": "Jeopardy + your party = jeoparty. keep score while playing along with friends, family, and fools"
   , "version": "0.0.1"
   , "dependencies": {
         "express": "2.3.11"
