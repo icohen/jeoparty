@@ -1,13 +1,19 @@
 {
-    "name": "jeoparty"
-  , "description": "Jeopardy + your party = jeoparty. keep score while playing along with friends, family, and fools"
-  , "version": "0.0.1"
-  , "dependencies": {
-        "express": "2.3.11"
-      , "jade": "0.12.1"
-      , "stylus": "0.13.3"
-      , "nib": "0.0.8"
-      , "socket.io":"0.7.7"
-    }
-  , "engines": { "node": "0.4.x" }
+  "name": "jeoparty",
+  "description": "Jeopardy + your party = jeoparty. keep score while playing along with friends, family, and fools",
+  "version": "0.0.1-1",
+  "dependencies": {
+    "express": "2.3.11",
+    "jade": "0.12.1",
+    "stylus": "0.13.3",
+    "nib": "0.0.8",
+    "socket.io": "0.7.7"
+  },
+  "engines": {
+    "node": "0.4.x"
+  },
+  "subdomain": "jeoparty",
+  "scripts": {
+    "start": "app.js"
+  }
 }
