@@ -3,14 +3,14 @@
   "description": "Jeopardy + your party = jeoparty. keep score while playing along with friends, family, and fools",
   "version": "0.0.1-1",
   "dependencies": {
-    "express": "2.3.11",
-    "jade": "0.12.1",
-    "stylus": "0.13.3",
-    "nib": "0.0.8",
-    "socket.io": "0.7.7"
+    "express": "2.x.x",
+    "jade": "0.x.x",
+    "stylus": "0.x.x",
+    "nib": "0.x.x",
+    "socket.io": "0.x.x"
   },
   "engines": {
-    "node": "0.4.x"
+    "node": "0.x.x"
   },
   "subdomain": "jeoparty",
   "scripts": {
