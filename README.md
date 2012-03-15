@@ -67,6 +67,6 @@
 
 ### run server
 
-jeoparty $ node app.js 
-   info  - socket.io started
-   app listening on http://0.0.0.0:3000
+    jeoparty $ node app.js 
+    info  - socket.io started
+    app listening on http://0.0.0.0:3000
